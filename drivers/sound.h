@@ -1,8 +1,9 @@
-//
-// Created by nastya on 04.03.23.
-//
+#pragma once
 
-#ifndef YABLOKO_PUBLIC_SOUND_H
-#define YABLOKO_PUBLIC_SOUND_H
 
-#endif //YABLOKO_PUBLIC_SOUND_H
+
+void nosound();
+
+void play_note(uint32_t frequency);
+
+void grasshopper();

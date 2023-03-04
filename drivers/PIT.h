@@ -1,8 +1,6 @@
-//
-// Created by nastya on 04.03.23.
-//
+#pragma once
+#include "../cpu/isr.h"
 
-#ifndef YABLOKO_PUBLIC_PIT_H
-#define YABLOKO_PUBLIC_PIT_H
+void init_pit();
 
-#endif //YABLOKO_PUBLIC_PIT_H
+void msleep(int ms);

@@ -23,12 +23,12 @@ ASMFLAGS = -target elf-i386 -ffreestanding -c -g
 LDKERNELFLAGS = --script=script.ld
 endif
 
-OBJECTS = kernel.o console.o drivers/vga.o drivers/uart.o drivers/keyboard.o \
+OBJECTS = kernel.o console.o drivers/vga.o drivers/uart.o drivers/keyboard.o drivers/sound.o drivers/PIT.o\
 	cpu/idt.o cpu/gdt.o cpu/swtch.o cpu/vectors.o lib/mem.o proc.o lib/string.o \
 	fs/fs.o
 
 run: image.bin
-	qemu-system-i386 -drive format=raw,file=$< -serial mon:stdio
+	 qemu-system-i386 -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0 -drive  format=raw,file=$< -serial mon:stdio
 
 run-nox: image.bin
 	qemu-system-i386 -nographic -drive format=raw,file=$< -serial mon:stdio
