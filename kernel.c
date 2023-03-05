@@ -28,7 +28,10 @@ void _start() {
     printk("YABLOKO\n");
 
     printk("\n> ");
-
+    printk("Playing moonlight sonata\n");
+    moonlight_sonata();
+    msleep(2000);
+    printk("Playing grasshopper\n");
     grasshopper();
     qemu_shutdown();
 }
