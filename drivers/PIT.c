@@ -7,7 +7,7 @@
 #include "PIT.h"
 
 enum {
-    PIT_CRYSTAL_HZ = 1193182,
+    PIT_CRYSTAL_HZ = 1193180,
 
     CLOCK_PRECISION_HZ = 100,
 
@@ -29,7 +29,7 @@ enum {
     PIT_MODES_HW_TRIGGERRED_STROBE = 0x5,
 };
 
-void timer_interrupt_handler(registers_t *r);
+static void timer_interrupt_handler(registers_t *r);
 
 struct pit_command_t {
     unsigned char bcd : 1;
@@ -55,7 +55,7 @@ void init_pit() {
 
 static int sleep_counter = 0;
 
-void timer_interrupt_handler(registers_t *r) {
+static void timer_interrupt_handler(registers_t *r) {
     sleep_counter--;
 }
 
